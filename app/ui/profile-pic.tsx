@@ -1,4 +1,4 @@
-import { GlobeAltIcon } from "@heroicons/react/24/outline";
+import { CodeBracketIcon } from "@heroicons/react/24/outline";
 import { lusitana } from "@/app/ui/font";
 
 export default function ProfilePic() {
@@ -6,8 +6,8 @@ export default function ProfilePic() {
     <div
       className={`${lusitana.className} flex flex-row items-center leading-none text-white`}
     >
-      <GlobeAltIcon className="h-12 w-12 rotate-[15deg]" />
-      <p className="text-[44px]">Acme</p>
+      <CodeBracketIcon className="h-12 w-12" />
+      <p className="text-[44px] ml-2">Shal</p>
     </div>
   );
 }
