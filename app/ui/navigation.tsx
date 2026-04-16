@@ -1,9 +1,9 @@
 "use client";
-
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { SunIcon, MoonIcon } from "@heroicons/react/20/solid";
+import { SunIcon, MoonIcon, XMarkIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 
 import useDarkMode from "@/app/hooks/useDarkMode";
@@ -20,6 +20,11 @@ const links = [
 export default function Navigation() {
   const pathName = usePathname();
   const { theme, toggleTheme } = useDarkMode();
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  function handleMobileToggleClick() {
+    setShowMobileMenu((prev) => !prev);
+  }
 
   return (
     <div className="container mx-auto">
@@ -29,10 +34,13 @@ export default function Navigation() {
             <Image src="/logo.svg" width={60} height={60} alt="logo" />
           </span>
           <p className="hidden font-body text-2xl font-bold text-primary dark:text-white lg:block">
-            John Doe
+            John Dsse
           </p>
         </Link>
-        <div className="flex items-center lg:hidden">
+        <div
+          className="flex items-center cursor-pointer lg:hidden"
+          onClick={handleMobileToggleClick}
+        >
           <i className="bx mr-8 cursor-pointer text-3xl text-primary dark:text-white"></i>
 
           <svg
@@ -85,6 +93,43 @@ export default function Navigation() {
               </i>
             </li>
           </ul>
+        </div>
+
+        {/* Mobile menu */}
+        <div
+          className={clsx(
+            "pointer-events-none fixed inset-0 z-50 flex bg-black bg-opacity-80 opacity-0 transition-opacity lg:hidde",
+            {
+              "opacity-100 pointer-events-auto": showMobileMenu === true,
+            }
+          )}
+        >
+          <div className="ml-auto w-2/3 bg-green p-4 md:w-1/3">
+            <XMarkIcon
+              onClick={handleMobileToggleClick}
+              className="cursor-pointer w-10 h-10 bx bx-x absolute top-0 right-0 mt-4 mr-4 text-4xl text-white"
+            />
+
+            <ul className="mt-8 flex flex-col">
+              {links.map((link) => {
+                return (
+                  <li className="" key={link.name} onClick={handleMobileToggleClick}>
+                    <Link
+                      href={link.href}
+                      className={clsx(
+                        "mb-3 block px-2 font-body text-lg font-medium text-white",
+                        {
+                          "text-yellow font-semibold": pathName === link.href,
+                        }
+                      )}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

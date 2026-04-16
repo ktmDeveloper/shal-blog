@@ -7,26 +7,26 @@ import {
   SparklesIcon,
 } from "@heroicons/react/20/solid";
 export default async function Page() {
-  const supabaseClient = await createClient();
-  const { data: blogs, error } = await supabaseClient
-    .from("blogs")
-    .select("*")
-    .order("created_at", { ascending: false })
-    .limit(10);
+  // const supabaseClient = await createClient();
+  // const { data: blogs, error } = await supabaseClient
+  //   .from("blogs")
+  //   .select("*")
+  //   .order("created_at", { ascending: false })
+  //   .limit(10);
 
   return (
     <div>
       <div className="container mx-auto">
         <div className="border-b border-grey-lighter py-16 lg:py-20">
           <div>
-            <img
+            {/* <img
               src="/assets/img/author.png"
               className="h-16 w-16"
               alt="author"
-            />
+            /> */}
           </div>
           <h1 className="pt-3 font-body text-4xl font-semibold text-primary dark:text-white md:text-5xl lg:text-6xl">
-            Hi, I’m John Doe.
+            Hi, I’m Jsohn Doe.
           </h1>
           <p className="pt-3 font-body text-xl font-light text-primary dark:text-white">
             A software engineer and open-source advocate enjoying the sunny life
@@ -49,7 +49,7 @@ export default async function Page() {
           </div>
           <div>
             <p className="font-body font-light text-primary dark:text-white">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              LLLLLLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh
               mauris cursus mattis molestie. Et leo duis ut diam. Sit amet
               tellus cras adipiscing enim eu turpis. Adipiscing at in tellus
