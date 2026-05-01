@@ -49,7 +49,7 @@ export default async function Page() {
           </div>
           <div>
             <p className="font-body font-light text-primary dark:text-white">
-              LLLLLLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              Test ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh
               mauris cursus mattis molestie. Et leo duis ut diam. Sit amet
               tellus cras adipiscing enim eu turpis. Adipiscing at in tellus
