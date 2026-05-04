@@ -7,12 +7,14 @@ import {
   SparklesIcon,
 } from "@heroicons/react/20/solid";
 export default async function Page() {
-  // const supabaseClient = await createClient();
-  // const { data: blogs, error } = await supabaseClient
-  //   .from("blogs")
-  //   .select("*")
-  //   .order("created_at", { ascending: false })
-  //   .limit(10);
+  const supabaseClient = await createClient();
+  const { data: blogs, error } = await supabaseClient
+    .from("blogs")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(10);
+  
+    console.log(blogs)
 
   return (
     <div>
@@ -25,12 +27,17 @@ export default async function Page() {
               alt="author"
             /> */}
           </div>
+
           <h1 className="pt-3 font-body text-4xl font-semibold text-primary dark:text-white md:text-5xl lg:text-6xl">
             Hi, I’m Jsohn Doe.
           </h1>
           <p className="pt-3 font-body text-xl font-light text-primary dark:text-white">
             A software engineer and open-source advocate enjoying the sunny life
             in Barcelona, Spain.
+
+          <span>
+            {blogs && blogs[0].created_by}
+          </span>
           </p>
           <a
             href="/"
